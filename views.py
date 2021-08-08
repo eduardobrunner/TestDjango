@@ -4,14 +4,16 @@ from django.template import Template, Context
 
 
 def Saludo(request):#esta vista debe recibir un request como primer argumento. PRIMERA VISTA
-    
+    ahora = datetime.datetime.now()
+
     doc_externo = open("C:/Users/Eduardo/Desktop/ProyectosDjango/Proyecto1/Proyecto1/plantilla1.html")
 
     mi_plantilla = Template(doc_externo.read())
 
     doc_externo.close()
 
-    contexto = Context()
+    contexto = Context({"mi_nombre":"Eduardo", "mi_apellido":"Brunner", "tiempo_actual":ahora})
+    #Se puede acceder a valores en la plantilla desde el contexto mediante diccionarios
 
     documento = mi_plantilla.render(contexto)
     
