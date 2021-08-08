@@ -28,5 +28,19 @@ Hola mundo, esta es mi primer plantilla html!!!
     </ul>
 </p>
 
+<p style="color: chartreuse">
+    <ul>
+    Lista desordenada con bucle for HTML, con if incluido
+    {% if colores%} <!--Si colores no tiene contenido se va al else-->
+       
+        {% for i in colores %}
+            <li>{{i}}</li>
+        {% endfor %}
+    {% else %}
+    <p style="color: red">No hay elementos para mostrar</p>    
+    {% endif %}
+    </ul>
+</p>
+
 </body>
 </html
