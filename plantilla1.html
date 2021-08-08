@@ -1,5 +1,5 @@
 <html>
-<body>
+<body style="background-color: darkgrey;">
 <h1 style="color:blueviolet">
 Hola mundo, esta es mi primer plantilla html!!!
 </h1>
@@ -11,6 +11,22 @@ Hola mundo, esta es mi primer plantilla html!!!
 <p style="color:cornflowerblue"><strong>
     Ver un solo elemento de la lista: {{colores.1}}
 </strong></p>
+
+<p style="color: crimson">
+    Recorremos lista con bucle for HTML
+    {% for i in colores %}
+        <p>{{i}}</p>
+    {% endfor %}
+</p>
+
+<p style="color:darkblue">
+    <ul>
+    Lista desordenada con bucle for HTML
+    {% for i in colores %}
+        <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+</p>
 
 </body>
 </html
