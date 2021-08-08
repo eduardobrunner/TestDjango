@@ -1,8 +1,21 @@
 from django.http import HttpResponse
 import datetime
+from django.template import Template, Context
+
 
 def Saludo(request):#esta vista debe recibir un request como primer argumento. PRIMERA VISTA
-    return HttpResponse("Hola Mundo!!!") #nos devuelve un texto
+    
+    doc_externo = open("C:/Users/Eduardo/Desktop/ProyectosDjango/Proyecto1/Proyecto1/plantilla1.html")
+
+    mi_plantilla = Template(doc_externo.read())
+
+    doc_externo.close()
+
+    contexto = Context()
+
+    documento = mi_plantilla.render(contexto)
+    
+    return HttpResponse(documento) #nos devuelve un texto
 
 def dameFecha(request):
     fecha_actual=datetime.datetime.now() 
