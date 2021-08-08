@@ -2,8 +2,18 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 
+class Persona(object):
+
+    def __init__(self, nombre, apellido):
+
+        self.nombre = nombre
+
+        self.apellido = apellido
 
 def Saludo(request):#esta vista debe recibir un request como primer argumento. PRIMERA VISTA
+    
+    p1=Persona("Eduardo","Brunner")
+    
     ahora = datetime.datetime.now()
 
     doc_externo = open("C:/Users/Eduardo/Desktop/ProyectosDjango/Proyecto1/Proyecto1/plantilla1.html")
@@ -12,7 +22,7 @@ def Saludo(request):#esta vista debe recibir un request como primer argumento. P
 
     doc_externo.close()
 
-    contexto = Context({"mi_nombre":"Eduardo", "mi_apellido":"Brunner", "tiempo_actual":ahora})
+    contexto = Context({"mi_nombre":p1.nombre, "mi_apellido":p1.apellido, "tiempo_actual":ahora})
     #Se puede acceder a valores en la plantilla desde el contexto mediante diccionarios
 
     documento = mi_plantilla.render(contexto)
