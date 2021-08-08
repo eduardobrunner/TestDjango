@@ -22,7 +22,10 @@ def Saludo(request):#esta vista debe recibir un request como primer argumento. P
 
     doc_externo.close()
 
-    contexto = Context({"mi_nombre":p1.nombre, "mi_apellido":p1.apellido, "tiempo_actual":ahora})
+    contexto = Context({"mi_nombre":p1.nombre,
+                        "mi_apellido":p1.apellido,
+                        "tiempo_actual":ahora,
+                        "colores":["negro","azul","amarillo"]}) #esta lista se puede crear aparte e invocar la variable aqui
     #Se puede acceder a valores en la plantilla desde el contexto mediante diccionarios
 
     documento = mi_plantilla.render(contexto)
