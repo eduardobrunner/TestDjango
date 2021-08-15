@@ -1,0 +1,59 @@
+<html>
+<body style="background-color: darkgrey;">
+    {% include "barra.html" %}
+<h1 style="color:blueviolet">
+Hola mundo, esta es mi primer plantilla html!!!
+</h1>
+
+{% if mi_nombre == 'Eduardo' %} <!--Si el nombre en p1.nombre es Eduardo..-->
+<p>Efectivamente soy yo</p>     <!--muestra esto-->
+{% else %}                      <!--opcional-->   
+{% endif %}
+
+{# ESTO ES OTRO COMENTARIO #}
+
+{% comment %} COMENTARIO DE 
+            2 O MAS LINEAS
+{% endcomment%}
+
+<p>Mi nombre es: {{mi_nombre}} {{mi_apellido}}</p>
+<p>Este es el momento actual: {{tiempo_actual}}</p>
+<p>Otro formato de fecha: {{tiempo_actual.day}}/{{tiempo_actual.month}}/{{tiempo_actual.year}}</p>
+<p>Ver toda una lista como elemento de diccionario: {{colores}}</p>
+
+<p style="color:cornflowerblue"><strong>
+    Ver un solo elemento de la lista: {{colores.1}}
+</strong></p>
+
+<p style="color: crimson">
+    Recorremos lista con bucle for HTML
+    {% for i in colores %}
+        <p>{{i}}</p>
+    {% endfor %}
+</p>
+
+<p style="color:darkblue">
+    <ul>
+    Lista desordenada con bucle for HTML
+    {% for i in colores %}
+        <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+</p>
+
+<p style="color: chartreuse">
+    <ul>
+    Lista desordenada con bucle for HTML, con if incluido
+    {% if colores%} <!--Si colores no tiene contenido se va al else-->
+       
+        {% for i in colores %}
+            <li>{{i}}</li>
+        {% endfor %}
+    {% else %}
+    <p style="color: red">No hay elementos para mostrar</p>    
+    {% endif %}
+    </ul>
+</p>
+
+</body>
+</html
