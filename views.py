@@ -12,7 +12,7 @@ class Persona(object):
 
 def Saludo(request):#esta vista debe recibir un request como primer argumento. PRIMERA VISTA
     
-    p1=Persona("Eduardo","Brunner")
+    p1=Persona("Romulo","Brunner")
     
     ahora = datetime.datetime.now()
 
