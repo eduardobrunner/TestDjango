@@ -3,6 +3,7 @@ import datetime
 from django.template import Template, Context
 from django.template import loader  #importar el cargador de plantillas
                                     #su metodo clave es loader.get_template
+from django.shortcuts import render
 
 class Persona(object):
 
@@ -40,17 +41,18 @@ def importando_plantilla(request):#esta vista debe recibir un request como prime
     
     ahora = datetime.datetime.now()
 
-    importando_mi_plantilla=loader.get_template('plantilla1.html')
+    #importando_mi_plantilla=loader.get_template('plantilla1.html')
 
-    contexto = {"mi_nombre":p2.nombre,
+    contexto = {"mi_nombre":p2.nombre,   #contexto es un diccionario
                 "mi_apellido":p2.apellido,
                 "tiempo_actual":ahora,
                 "colores":[1,2,3]
                 } 
 
-    documento = importando_mi_plantilla.render(contexto)
+    #documento = importando_mi_plantilla.render(contexto)
     
-    return HttpResponse(documento) #nos devuelve un texto
+    #return HttpResponse(documento) #nos devuelve un texto
+    return render(request, "plantilla1.html", contexto) #este paquete de shortcuts 'render' lleva 3 argumentos nada mas
 
 def dameFecha(request):
     fecha_actual=datetime.datetime.now() 
