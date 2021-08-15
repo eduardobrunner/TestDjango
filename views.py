@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template import loader  #importar el cargador de plantillas
+                                    #su metodo clave es loader.get_template
 
 class Persona(object):
 
@@ -16,7 +18,7 @@ def Saludo(request):#esta vista debe recibir un request como primer argumento. P
     
     ahora = datetime.datetime.now()
 
-    doc_externo = open("C:/Users/Eduardo/Desktop/ProyectosDjango/Proyecto1/Proyecto1/plantilla1.html")
+    doc_externo = open("C:/Users/Eduardo/Desktop/ProyectosDjango/Proyecto1/Proyecto1/plantillas/plantilla1.html")
 
     mi_plantilla = Template(doc_externo.read())
 
@@ -29,6 +31,24 @@ def Saludo(request):#esta vista debe recibir un request como primer argumento. P
     #Se puede acceder a valores en la plantilla desde el contexto mediante diccionarios
 
     documento = mi_plantilla.render(contexto)
+    
+    return HttpResponse(documento) #nos devuelve un texto
+
+def importando_plantilla(request):#esta vista debe recibir un request como primer argumento. PRIMERA VISTA
+    
+    p2=Persona("Eduardo","Brunner")
+    
+    ahora = datetime.datetime.now()
+
+    importando_mi_plantilla=loader.get_template('plantilla1.html')
+
+    contexto = {"mi_nombre":p2.nombre,
+                "mi_apellido":p2.apellido,
+                "tiempo_actual":ahora,
+                "colores":[1,2,3]
+                } 
+
+    documento = importando_mi_plantilla.render(contexto)
     
     return HttpResponse(documento) #nos devuelve un texto
 
