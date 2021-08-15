@@ -6,7 +6,14 @@ Hola mundo, esta es mi primer plantilla html!!!
 
 {% if mi_nombre == 'Eduardo' %} <!--Si el nombre en p1.nombre es Eduardo..-->
 <p>Efectivamente soy yo</p>     <!--muestra esto-->
+{% else %}                      <!--opcional-->   
 {% endif %}
+
+{# ESTO ES OTRO COMENTARIO #}
+
+{% comment %} COMENTARIO DE 
+            2 O MAS LINEAS
+{% endcomment%}
 
 <p>Mi nombre es: {{mi_nombre}} {{mi_apellido}}</p>
 <p>Este es el momento actual: {{tiempo_actual}}</p>
